@@ -4,6 +4,8 @@ language: python
 python:
   - "2.7"
 
+virtualenv:
+  system_site_packages: true
 
 before_install:
   # Add ubuntugis and mapnik stable PPA
@@ -14,7 +16,7 @@ before_install:
   
   # Install pillow to system python
   - sudo apt-get install -qq libjpeg-dev libz-dev libtiff-dev libfreetype6-dev liblcms-dev libwebp-dev libopenjpeg-dev
-  - sudo pip install pillow
+  - sudo pip install -q pillow
   # Install numpy/scipy (12.04 comes with very old scipy, but build from source
   # takes too much time)
 #  - sudo apt-get install -qq gcc g++ gfortran libblas-dev liblapack-dev
