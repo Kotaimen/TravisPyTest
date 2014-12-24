@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='TravisPyTest',
-    version='0.0.1',
+    version='0.0.2',
     packages=['TravisTest'],
     url='',
     license='None',

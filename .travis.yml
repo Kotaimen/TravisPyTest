@@ -44,7 +44,7 @@ branches:
     - master
 
 script:
-  - nosetests
+  - nosetests --where=tests
 
 notifications:
   email:
