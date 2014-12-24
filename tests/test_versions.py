@@ -21,7 +21,7 @@ class TestVersions(unittest.TestCase):
         import scipy
 
         self.assertGreaterEqual(StrictVersion(scipy.version.version),
-                                StrictVersion('0.14.0'))
+                                StrictVersion('0.9.0'))
 
     def test_gdal(self):
         import gdal
@@ -31,7 +31,7 @@ class TestVersions(unittest.TestCase):
     def test_shapely(self):
         self.assertGreaterEqual(
             StrictVersion('.'.join(map(str, shapely.geos.geos_version))),
-            StrictVersion('3.4.0'))
+            StrictVersion('3.3.8'))
 
     def test_mapnik(self):
         import mapnik
