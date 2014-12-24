@@ -17,35 +17,45 @@ before_install:
   # Install pillow to system python
   - sudo apt-get install -qq libjpeg-dev libz-dev libtiff-dev libfreetype6-dev liblcms-dev libwebp-dev libopenjpeg-dev
   - sudo pip install -q pillow
+  
   # Install numpy/scipy (12.04 comes with very old scipy, but build from source
   # takes too much time)
 #  - sudo apt-get install -qq gcc g++ gfortran libblas-dev liblapack-dev
-#  - sudo pip install numpy
-#  - sudo pip install scipy
+#  - sudo pip install -q numpy
+#  - sudo pip install -q scipy
   - sudo apt-get install -qq python-numpy python-scipy
+  
   # Install  Mapnik
   - sudo apt-get install -qq libgeos-dev libgdal-dev gdal-bin python-gdal
   - sudo apt-get install -qq python-mapnik
+  
   # Check installed packages
   - geos-config --version
   - ogrinfo --version
-#  - ogrinfo --formats
+  - ogrinfo --formats
   - mapnik-config --version
 
 install:
-  - pip install .
   - pip install -q coverage
-  - pip install -q -r requirements.txt
+  - pip install .
 
 services:
   - memcached
+  - redis-server
+  
+addons:
+  postgresql: "9.3"
 
 branches:
   only:
     - master
+    
+before_script:
+  - psql -U postgres -c 'create database travis_ci_test;'
+  - psql -U postgres -d travis_ci_test -c "create extension postgis;"
 
 script:
-  - nosetests --where=tests
+  - nosetests
 
 notifications:
   email:

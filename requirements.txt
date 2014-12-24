@@ -1,2 +1,2 @@
-python-memcached==1.53
-Shapely==1.5.1
+# Change requirements in setup.py
+--editable=.

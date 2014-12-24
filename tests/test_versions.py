@@ -39,6 +39,12 @@ class TestVersions(unittest.TestCase):
         self.assertGreaterEqual(LooseVersion(mapnik.mapnik_version_string()),
                                 LooseVersion('2.2.0'))
 
+    def test_psycopg2(self):
+        import psycopg2
+
+        self.assertGreaterEqual(StrictVersion(psycopg2.__version__.split(' ')[0]),
+                                StrictVersion('2.5.0'))
+
 
 if __name__ == '__main__':
     unittest.main()
