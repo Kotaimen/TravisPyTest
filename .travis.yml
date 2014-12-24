@@ -34,7 +34,8 @@ before_install:
 
 install:
   - pip install .
-  - pip install -r requirements.txt
+  - pip install -q coverage
+  - pip install -q -r requirements.txt
 
 services:
   - memcached
