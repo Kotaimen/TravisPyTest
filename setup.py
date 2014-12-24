@@ -2,11 +2,11 @@ from distutils.core import setup
 
 setup(
     name='TravisPyTest',
-    version='',
+    version='0.0.1',
     packages=['TravisTest'],
     url='',
-    license='',
+    license='None',
     author='kotaimen',
-    author_email='',
-    description=''
+    author_email='kotaimen.c@gmail.com',
+    description='A Python Travis-CI Test'
 )

@@ -6,7 +6,6 @@ __date__ = '12/23/14'
 import unittest
 from TravisTest import Cache
 
-
 class MyTestCase(unittest.TestCase):
     def setUp(self):
         self.client = Cache()

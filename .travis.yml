@@ -9,12 +9,16 @@ install:
 services:
   - memcached
 
-# build matrix
 branches:
   only:
     - master
 
-# tests
 script: nosetests
+
+notifications:
+  email:
+    recipients:
+      - gliese.ray@gmail.com
+      - kotaimen.c@gmail.com
 
 
