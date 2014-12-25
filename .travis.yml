@@ -26,7 +26,7 @@ before_install:
   - sudo apt-get install -qq python-numpy python-scipy
   
   # Install  Mapnik
-  - sudo apt-get install -qq libgeos-dev libgdal-dev gdal-bin python-gdal postgis
+  - sudo apt-get install -qq libgeos-dev libgdal-dev gdal-bin python-gdal 
   - sudo apt-get install -qq python-mapnik
   
   # Check installed packages
@@ -41,18 +41,18 @@ install:
 
 services:
   - memcached
-#  - redis-server
+  - redis-server
   
-#addons:
-#  postgresql: "9.3"
+addons:
+  postgresql: "9.3"
 
 branches:
   only:
     - master
     
 before_script:
-  - psql -U postgres -c 'create database travis_ci_test;'
-  - psql -U postgres -d travis_ci_test -c "create extension postgis;"
+#  - psql -U postgres -c 'create database travis_ci_test;'
+#  - psql -U postgres -d travis_ci_test -c "create extension postgis;"
 
 script:
   - nosetests
