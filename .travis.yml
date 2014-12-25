@@ -41,10 +41,10 @@ install:
 
 services:
   - memcached
-  - redis-server
+#  - redis-server
   
-addons:
-  postgresql: "9.3"
+#addons:
+#  postgresql: "9.3"
 
 branches:
   only:
